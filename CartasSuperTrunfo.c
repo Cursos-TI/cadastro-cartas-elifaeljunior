@@ -5,6 +5,7 @@ int main(){
     char estado1, estado2, cod1[3], cod2[3], cidade1[30], cidade2[30];
     int pop1, pop2, tur1, tur2;
     float area1, area2, pib1, pib2;
+    float dens1, dens2, pibcap1, pibcap2;
 
     printf("Olá, Seja bem-vindo(a) ao meu primeiro programa em C\nVamos brincar de um jogo chamado Super Trunfo\nVamos começar!\n");
     printf("Vamos escolher as informações de uma carta por vez.\n");
@@ -25,13 +26,13 @@ int main(){
     printf("Segundo código: ");
     scanf("%s", cod2);
 
-    printf("\nDigite o nome da cidade que deseja\nPor exemplo:\nSalvador\nCamaçari\nFeira de Santana\n\n");
+    printf("\nDigite o nome da cidade que deseja\n\n");
     
     printf("Digite a primeira Cidade: ");
     scanf(" %[^\n]", cidade1);
 
-    printf("Digite a Segunda Cidade: ");
-    scanf(" %[^\n]", cidade1);
+    printf("Digite a segunda Cidade: ");
+    scanf(" %[^\n]", cidade2);
 
     printf("\nDigite a população da Cidade\n\n");
     
@@ -65,9 +66,19 @@ int main(){
     printf("Pontos turísticos cidade 2: ");
     scanf("%d", &tur2);
 
-    printf("\nCarta 1:\nEstado: %c\nCódigo: %c%s\nNome da Cidade: %s\nPopulação: %d\nÁrea: %.2f km²\nPIB: %.2f Bilhões de reais\nNúmero de Pontos Turísticos: %d\n\n", estado1, estado1, cod1, cidade1, pop1, area1, pib1, tur1);
-    printf("Carta 2:\nEstado: %c\nCódigo: %c%s\nNome da Cidade: %s\nPopulação: %d\nÁrea: %.2f km²\nPIB: %.2f Bilhões de reais\nNúmero de Pontos Turísticos: %d\n\n", estado2, estado2, cod2, cidade2, pop2, area2, pib2, tur2);
+    // Cálculos
+    dens1 = pop1 / area1;
+    dens2 = pop2 / area2;
 
+    pibcap1 = pib1 / pop1;
+    pibcap2 = pib2 / pop2;
 
-return 0;
-} 
+    // Saída
+    printf("\nCarta 1:\nEstado: %c\nCódigo: %c%s\nNome da Cidade: %s\nPopulação: %d\nÁrea: %.2f km²\nPIB: %.2f bilhões de reais\nNúmero de Pontos Turísticos: %d\nDensidade Populacional: %.2f hab/km²\nPIB per Capita: %.2f reais\n\n",
+           estado1, estado1, cod1, cidade1, pop1, area1, pib1, tur1, dens1, pibcap1);
+
+    printf("Carta 2:\nEstado: %c\nCódigo: %c%s\nNome da Cidade: %s\nPopulação: %d\nÁrea: %.2f km²\nPIB: %.2f bilhões de reais\nNúmero de Pontos Turísticos: %d\nDensidade Populacional: %.2f hab/km²\nPIB per Capita: %.2f reais\n\n",
+           estado2, estado2, cod2, cidade2, pop2, area2, pib2, tur2, dens2, pibcap2);
+
+    return 0;
+}
